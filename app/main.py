@@ -1,7 +1,7 @@
 from database.session import SessionLocal, create_tables
-from models.vacancy_model import Vacancy
-from models.user_model import User
-from parsers.hh_parser import HHParser
+from app.models.vacancy_model import Vacancy
+from app.models.user_model import User
+from app.parsers.hh_parser import HHParser
 from datetime import datetime
 
 
@@ -10,13 +10,20 @@ def simple_test():
     session = SessionLocal()
     parser = HHParser()
 
+    keywords = input("Введите ключевые слова >> ")
+    city_input = input("Введите город (1-Москва, 2-СПб) >> ")
+    salary_input = input("Минимальная зарплата (оставьте пустым если не важно) >> ")
+
+    area = int(city_input) if city_input.isdigit() else 1
+    salary_min = int(salary_input) if salary_input.isdigit() else None
+
     search_params = {
-        "keywords": "Python разработчик",
-        "salary_min": 150000,
-        "area": 1,
+        "keywords": keywords,
+        "salary_min": salary_min,
+        "area": area,
         "employment": "full",
         "experience": "between1And3",
-        "per_page": 5
+        "per_page": 10
     }
 
     raw_vacancies = parser.search_vacancies(search_params)
@@ -44,14 +51,10 @@ def simple_test():
         session.add(vacancy)
         session.commit()
 
-        print(f"✅ Вакансия создана:")
-        print(f"   Название: {vacancy.title}")
-        print(f"   Зарплата: {vacancy.salary}")
-        print(f"   Компания: {vacancy.company}")
-        print(f"   Занятость: {vacancy.employment}")
-        print(f"   Опыт работы: {vacancy.experience}")
-        print(f"   Город: {vacancy.city}")
-
+        print(f"✅ {vacancy.title}")
+        print(f"   💰 {vacancy.salary}")
+        print(f"   🏢 {vacancy.company}")
+        print(f"   📍 {vacancy.city}")
 
     session.close()
 

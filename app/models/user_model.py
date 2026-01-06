@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 from datetime import datetime
 from typing import List
 
-from models.base_model import Base
+from app.models.base_model import Base
 
 class User(Base):
     __tablename__ = 'users'

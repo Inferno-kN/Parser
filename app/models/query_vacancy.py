@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, ForeignKey
-from models.base_model import Base
+from app.models.base_model import Base
 
 
 query_vacancy = Table(

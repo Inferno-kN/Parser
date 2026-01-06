@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models.base_model import Base
-from models import user_model, vacancy_model, query_model
-from models import query_vacancy
+from app.models.base_model import Base
+from app.models import user_model, vacancy_model, query_model
+from app.models import query_vacancy
 
 
 db_path = "sqlite:///vacancy.db"

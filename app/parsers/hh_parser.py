@@ -1,5 +1,5 @@
 import requests
-from parsers.config import HH_API_URL
+from app.parsers.config import HH_API_URL
 
 
 class HHParser:

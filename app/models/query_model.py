@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 from datetime import datetime
 from typing import List, Dict, Any
 
-from models.base_model import Base
+from app.models.base_model import Base
 
 
 class Query(Base):

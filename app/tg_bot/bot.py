@@ -1,6 +1,6 @@
 import asyncio
 from aiogram import Bot, Dispatcher
-from .handlers.user_handlers import router as user_router
+from app.tg_bot.handlers.user_handlers import router as user_router
 from config import TOKEN
 
 
