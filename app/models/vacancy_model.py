@@ -12,7 +12,7 @@ class Vacancy(Base):
     title: Mapped[str] = mapped_column(String(100))
     salary: Mapped[int] = mapped_column(Integer, nullable=False)
     company: Mapped[str] = mapped_column(String(255))
-    description: Mapped[str] = mapped_column(Text)
+    description: Mapped[str] = mapped_column(Text, nullable=True)
     url: Mapped[str] = mapped_column(String(255))
     employment: Mapped[str] = mapped_column(String(255))
     experience: Mapped[str] = mapped_column(String(255))
@@ -24,3 +24,6 @@ class Vacancy(Base):
         secondary="query_vacancy",
         back_populates="vacancies"
     )
+
+    def __str__(self):
+        return f"Название: {self.title}, Зарплата: {self.salary}"

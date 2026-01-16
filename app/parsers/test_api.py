@@ -1,8 +1,9 @@
 from hh_parser import HHParser
+from app.parsers.config import HH_API_URL
 
 
 def test_your_parser():
-    parser = HHParser()
+    parser = HHParser(base_url=HH_API_URL)
 
     # Параметры как в твоём коде (без salary_max)
     search_params = {

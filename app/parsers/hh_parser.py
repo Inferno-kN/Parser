@@ -1,10 +1,9 @@
 import requests
-from app.parsers.config import HH_API_URL
 
 
 class HHParser:
-    def __init__(self):
-        self.base_url = HH_API_URL
+    def __init__(self, base_url):
+        self.base_url = base_url
 
 
     def search_vacancies(self, params: dict) -> list:
