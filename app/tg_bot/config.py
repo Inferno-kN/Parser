@@ -1,4 +1,4 @@
-TOKEN = "7585475219:AAEOCEb6xQPisF9knW_80nnv4aaVDisPJ-U"
+TOKEN = ""
 
 city_list = {
     'Москва': 1,
